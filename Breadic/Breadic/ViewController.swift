@@ -49,8 +49,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         cell.layer.cornerRadius = 10
         
         cell.NameLbl.text = BreadNames[indexPath.row]
-        cell.NameLbl.numberOfLines = 2
-        cell.NameLbl.adjustsFontSizeToFitWidth = true
         cell.imageView.image = UIImage(named: images[indexPath.row])
         cell.PriceLbl.text = BreadPrices[indexPath.row]
         cell.StarLbl.text = Stars[indexPath.row]

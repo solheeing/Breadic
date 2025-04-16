@@ -16,19 +16,20 @@ class CollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+
         NameLbl.font = UIFont.boldSystemFont(ofSize: 16)
         NameLbl.textAlignment = .center
-        NameLbl.numberOfLines = 2
-        NameLbl.adjustsFontSizeToFitWidth = true
+        NameLbl.numberOfLines = 2 //이름 라벨 2줄 제한
+        NameLbl.lineBreakMode = .byWordWrapping
+        NameLbl.adjustsFontSizeToFitWidth = false
 
         PriceLbl.font = UIFont.systemFont(ofSize: 14)
         PriceLbl.textAlignment = .center
 
-        StarLbl.font = UIFont.systemFont(ofSize: 13)
+        StarLbl.font = UIFont.systemFont(ofSize: 14)
         StarLbl.textAlignment = .center
-
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
     }
     
 }

@@ -26,7 +26,7 @@ class CollectionViewCell: UICollectionViewCell {
         NameLbl.lineBreakMode = .byWordWrapping
         NameLbl.adjustsFontSizeToFitWidth = false
 
-        PriceLbl.font = UIFont.systemFont(ofSize: 14)
+        PriceLbl.font = UIFont.systemFont(ofSize: 15)
         PriceLbl.textAlignment = .center
 
         StarLbl.font = UIFont.systemFont(ofSize: 14)

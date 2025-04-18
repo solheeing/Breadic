@@ -13,10 +13,12 @@ class AldiViewController: UIViewController {
     
     let breadList: [Bread] = [
         Bread(name: "Ovo Crunchy Roll", imageName: "Ovo Crunchy Roll", price: 2.20, star: 5),
-        Bread(name: "Apfeltasche", imageName: "Apfeltasche", price: 1.69, star: 2),
-        Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 2.10, star: 4),
+        Bread(name: "Apfeltasche", imageName: "Apfeltasche", price: 1.89, star: 2),
         Bread(name: "Mandelnest", imageName: "Mandelnest", price: 2.75, star: 2),
+        Bread(name: "Herzdonut", imageName: "Herzdonut", price: 0.99, star: 4),
+        Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 1.59, star: 4),
         Bread(name: "Pistaziencroissant", imageName: "Pistaziencroissant", price: 1.19, star: 5)
+        
     ]
     
     override func viewDidLoad() {
@@ -25,20 +27,19 @@ class AldiViewController: UIViewController {
     }
     
     func setupCollectionViewLayout() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 10
+
+        AldiCollectionView.setCollectionViewLayout(layout, animated: false)
+        
         AldiCollectionView.delegate = self
         AldiCollectionView.dataSource = self
-        
-        if let layout = AldiCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let itemsPerRow: CGFloat = 2
-            let spacing: CGFloat = 10
-            let totalSpacing = spacing * (itemsPerRow + 1)
-            let width = (AldiCollectionView.bounds.width - totalSpacing) / itemsPerRow
-            layout.itemSize = CGSize(width: width, height: width * 1.5)
-            layout.minimumInteritemSpacing = spacing
-            layout.minimumLineSpacing = spacing
-            AldiCollectionView.contentInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        }
+        AldiCollectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
+    
 }
 
 extension AldiViewController: UICollectionViewDelegate, UICollectionViewDataSource {

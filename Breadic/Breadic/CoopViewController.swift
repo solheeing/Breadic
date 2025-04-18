@@ -12,6 +12,7 @@ class CoopViewController: UIViewController {
     @IBOutlet weak var CoopCollectionView: UICollectionView!
     
     let breadList: [Bread] = [
+        Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 2.10, star: 4),
         Bread(name: "Kürbiskernbrot", imageName: "Kürbiskernbrot", price: 3.10, star: 4),
         Bread(name: "Vollkornbrötli", imageName: "Vollkornbrötli", price: 2.00, star: 3),
         Bread(name: "Berner Mütschli", imageName: "Berner Mütschli", price: 2.90, star: 5),

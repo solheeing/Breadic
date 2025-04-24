@@ -13,27 +13,39 @@ class CoopViewController: UIViewController {
     
     let breadList: [Bread] = [
         Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 2.10, star: 4),
-        Bread(name: "Kürbiskernbrot", imageName: "Kürbiskernbrot", price: 3.10, star: 4),
-        Bread(name: "Vollkornbrötli", imageName: "Vollkornbrötli", price: 2.00, star: 3),
-        Bread(name: "Berner Mütschli", imageName: "Berner Mütschli", price: 2.90, star: 5),
-        Bread(name: "Rustico", imageName: "Rustico", price: 2.40, star: 2)
+        Bread(name: "Berliner Aprikose", imageName: "Berliner Aprikose", price: 1.50, star: 2),
+        Bread(name: "Sapori Cornetti Pistacchio", imageName: "Pistaziencroissant", price: 1.95, star: 5),
+        Bread(name: "Ovo Crunchy Roll", imageName: "Ovo Crunchy Roll", price: 2.30, star: 5),
+        Bread(name: "Berliner", imageName: "Berliner", price: 1.50, star: 4),
+        Bread(name: "Nussgifel", imageName: "Nussgifel", price: 1.95, star: 2),
+        Bread(name: "Max Havelaar Choco Croissant", imageName: "Munz-Schoggigipfel", price: 1.95, star: 4)
     ]
+
+    var hasSetLayout = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionViewLayout()
+        CoopCollectionView.delegate = self
+        CoopCollectionView.dataSource = self
+        setupCollectionViewLayout() // 다시 여기서 호출
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if !hasSetLayout {
+            setupCollectionViewLayout()
+            hasSetLayout = true
+        }
     }
 
     func setupCollectionViewLayout() {
-        CoopCollectionView.delegate = self
-        CoopCollectionView.dataSource = self
-
         if let layout = CoopCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let itemsPerRow: CGFloat = 2
             let spacing: CGFloat = 10
-            let totalSpacing = spacing * (itemsPerRow + 1)
-            let width = (CoopCollectionView.bounds.width - totalSpacing) / itemsPerRow
-            layout.itemSize = CGSize(width: width, height: width * 1.5)
+            let itemWidth: CGFloat = 172.5
+            let itemHeight: CGFloat = 276 // width의 1.6배
+
+            layout.estimatedItemSize = .zero // 자동 크기 계산 끄기
+            layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
             layout.minimumInteritemSpacing = spacing
             layout.minimumLineSpacing = spacing
             CoopCollectionView.contentInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)

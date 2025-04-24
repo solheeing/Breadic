@@ -8,31 +8,41 @@
 import UIKit
 
 class MigrosViewController: UIViewController {
-    
+
     @IBOutlet weak var MigrosCollectionView: UICollectionView!
-    
+
     let breadList: [Bread] = [
-        Bread(name: "Butterzopf", imageName: "Butterzopf", price: 2.50, star: 4),
-        Bread(name: "Laugenbrötli", imageName: "Laugenbrötli", price: 1.80, star: 3),
-        Bread(name: "Croissant", imageName: "Croissant", price: 1.60, star: 5),
-        Bread(name: "Ruchbrot", imageName: "Ruchbrot", price: 2.30, star: 2)
+        Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 1.70, star: 4),
+        Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 1.70, star: 4),
+        Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 1.70, star: 4),
+        Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 1.70, star: 4)
     ]
+    
+    var hasSetLayout = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionViewLayout()
+        MigrosCollectionView.delegate = self
+        MigrosCollectionView.dataSource = self
+        setupCollectionViewLayout() // 다시 여기서 호출
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if !hasSetLayout {
+            setupCollectionViewLayout()
+            hasSetLayout = true
+        }
     }
 
     func setupCollectionViewLayout() {
-        MigrosCollectionView.delegate = self
-        MigrosCollectionView.dataSource = self
-
         if let layout = MigrosCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let itemsPerRow: CGFloat = 2
             let spacing: CGFloat = 10
-            let totalSpacing = spacing * (itemsPerRow + 1)
-            let width = (MigrosCollectionView.bounds.width - totalSpacing) / itemsPerRow
-            layout.itemSize = CGSize(width: width, height: width * 1.5)
+            let itemWidth: CGFloat = 172.5
+            let itemHeight: CGFloat = 276 // width의 1.6배
+
+            layout.estimatedItemSize = .zero // 자동 크기 계산 끄기
+            layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
             layout.minimumInteritemSpacing = spacing
             layout.minimumLineSpacing = spacing
             MigrosCollectionView.contentInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
@@ -60,5 +70,4 @@ extension MigrosViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
         return cell
     }
-    
 }

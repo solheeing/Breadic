@@ -19,10 +19,12 @@ class AldiViewController: UIViewController {
         Bread(name: "Mandelnest", imageName: "Mandelnest", price: 2.75, star: 2),
         Bread(name: "Herzdonut", imageName: "Herzdonut", price: 0.99, star: 4),
         Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 1.59, star: 4),
-        Bread(name: "Pistaziencroissant", imageName: "Pistaziencroissant", price: 1.19, star: 5),
+        Bread(name: "Pistaziencroissant", imageName: "Pistaziencroissant", price: 1.25, star: 5),
         Bread(name: "Munz-Schoggigipfel", imageName: "Munz-Schoggigipfel", price: 1.49, star: 4),
         Bread(name: "Schoggi Donut", imageName: "Schoggi Donut", price: 0.89, star: 4),
-        Bread(name: "Pistazienberliner", imageName: "Pistazienberliner", price: 0.99, star: 3)
+        Bread(name: "Pistazienberliner", imageName: "Pistazienberliner", price: 0.99, star: 3),
+        Bread(name: "Buttergipfel", imageName: "Buttergipfel", price: 0.69, star: 3),
+        Bread(name: "Pain au chocolat", imageName: "Pain au chocolat", price: 0.00, star: 4)
     ]
 
     override func viewDidLoad() {

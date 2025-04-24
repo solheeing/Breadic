@@ -12,13 +12,18 @@ class CoopViewController: UIViewController {
     @IBOutlet weak var CoopCollectionView: UICollectionView!
     
     let breadList: [Bread] = [
-        Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 2.10, star: 4),
+        Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 2.10, star: 3),
         Bread(name: "Berliner Aprikose", imageName: "Berliner Aprikose", price: 1.50, star: 2),
-        Bread(name: "Sapori Cornetti Pistacchio", imageName: "Pistaziencroissant", price: 1.95, star: 5),
+        Bread(name: "Cornetto Pistacchio", imageName: "Pistaziencroissant", price: 1.95, star: 5),
         Bread(name: "Ovo Crunchy Roll", imageName: "Ovo Crunchy Roll", price: 2.30, star: 5),
         Bread(name: "Berliner", imageName: "Berliner", price: 1.50, star: 4),
-        Bread(name: "Nussgifel", imageName: "Nussgifel", price: 1.95, star: 2),
-        Bread(name: "Max Havelaar Choco Croissant", imageName: "Munz-Schoggigipfel", price: 1.95, star: 4)
+        Bread(name: "Nussgipfel", imageName: "Nussgipfel", price: 1.95, star: 0),
+        Bread(name: "Choco Croissant", imageName: "Munz-Schoggigipfel", price: 1.95, star: 4),
+        Bread(name: "Donut Choco", imageName: "Donut Choco", price: 1.50, star: 4),
+        Bread(name: "Buttergipfel", imageName: "Buttergipfel", price: 0.69, star: 4),
+        Bread(name: "Mandelgipfel", imageName: "Mandelgipfel", price: 1.95, star: 2),
+        Bread(name: "R&L Brownie FSI", imageName: "R&L Brownie FSI", price: 1.95, star: 3),
+        Bread(name: "Pain au chocolat", imageName: "Pain au chocolat", price: 0.00, star: 4)
     ]
 
     var hasSetLayout = false

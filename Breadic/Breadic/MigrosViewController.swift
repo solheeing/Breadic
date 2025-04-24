@@ -13,9 +13,7 @@ class MigrosViewController: UIViewController {
 
     let breadList: [Bread] = [
         Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 1.70, star: 4),
-        Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 1.70, star: 4),
-        Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 1.70, star: 4),
-        Bread(name: "Himbeer-Vanille Plunder", imageName: "Himbeer-Vanille Plunder", price: 1.70, star: 4)
+        Bread(name: "Berliner", imageName: "Berliner", price: 1.35, star: 4)
     ]
     
     var hasSetLayout = false
